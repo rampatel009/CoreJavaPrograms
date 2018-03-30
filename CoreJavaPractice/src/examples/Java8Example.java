@@ -1,12 +1,12 @@
 package examples;
 
-import javax.swing.text.html.Option;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Java8Example {
@@ -23,9 +23,10 @@ public class Java8Example {
         } else {
             System.out.println("string value is not present");
         }
-        Stream<Integer> intStream = Stream.of(1, 2, 5, 7, 10, 15);
-        List<Integer> inList = intStream.collect(Collectors.toList());
-//        Optional<Integer> intFilteredList = Optional.of(inList);
+//        IntStream intStream = IntStream.of(1, 2, 5, 7, 10, 15);
+//        List<Integer> inList = intStream.boxed().collect(Collectors.toList());
+//        intStream.forEach(System.out::println);
+        //        Optional<Integer> intFilteredList = Optional.of(inList);
 //        intFilteredList.filter((i) -> i > 5);
 
 //        Optional<List> checkNull1 = Optional.of(intList);
@@ -133,7 +134,7 @@ public class Java8Example {
         Function<Integer,Integer> add2 = Utils::add2;
         System.out.println(add2.apply(2));
 
-        Function<Integer, Function<Integer,Integer>> makeAdder = x -> y -> + 1 ;
+        Function<Integer, Function<Integer,Integer>> makeAdder = x -> y -> x + 1 ;
         Function<Integer,Integer> add11 = makeAdder.apply(1);
         Function<Integer,Integer> add22 = makeAdder.apply(2);
         Function<Integer,Integer> add33 = makeAdder.apply(3);
@@ -141,8 +142,37 @@ public class Java8Example {
         System.out.println(add22.apply(2));
         System.out.println(add33.apply(3));
     }
+
+    public static void randomCode() {
+        IntStream intStream = IntStream.of(1, 2, 5, 7, 10, 15);
+        List<Integer> inList = intStream.boxed().collect(Collectors.toList());
+
+        IntegerObj obj = null;
+        Optional.ofNullable(obj).ifPresent(System.out::println);
+        obj = new IntegerObj();
+        obj.setIntArray(inList);
+        Optional.ofNullable(obj).ifPresent(integerObj -> Optional.ofNullable(integerObj.getIntArray()).ifPresent(intObj -> intObj.stream().filter(integer -> integer > 5).limit(2).forEach(System.out::println)));
+        System.out.println("******************");
+        Optional.ofNullable(obj).map(u -> u.getIntArray()).filter(IntegerObj::isCountGood).ifPresent(u -> u.forEach(System.out::println));
+    }
 }
 
 class Utils {
     public static Integer add2(Integer x) { return x + 1; }
+}
+
+class IntegerObj {
+    private List<Integer> intArray = null;
+
+    public List<Integer> getIntArray() {
+        return intArray;
+    }
+
+    public void setIntArray(List<Integer> intArray) {
+        this.intArray = intArray;
+    }
+
+    public static boolean isCountGood(List<Integer> intArray) {
+        return intArray.size() > 5;
+    }
 }
