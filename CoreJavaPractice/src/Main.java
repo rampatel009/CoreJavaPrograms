@@ -29,6 +29,7 @@ public class Main {
         oe.functionalProgramming();
         System.out.println("****  Java 8 Functional programming end  ****");
         System.out.println();
+		// Core java 5 Generics examples end 
 
     }
 
