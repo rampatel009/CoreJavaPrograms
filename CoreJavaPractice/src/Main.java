@@ -13,7 +13,7 @@ public class Main {
         // Core java 5 Generics examples Test changes
         callGenericsMethod();
         System.out.println();
-        //random code for practice Test 2
+
         System.out.println("****  Java 8 Optional   ****");
         Java8Example oe = new Java8Example();
         oe.runOptionalExamples();
