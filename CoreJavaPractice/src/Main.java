@@ -20,6 +20,8 @@ public class Main {
         System.out.println("****  Java 8 Optional end  ****");
         System.out.println();
 
+        //Test 1
+
         System.out.println("****  Java 8 Streams   ****");;
         oe.runStreamsExamples();
         System.out.println("****  Java 8 Streams end  ****");
