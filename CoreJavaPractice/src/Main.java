@@ -7,13 +7,13 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        //random code for practice Test 1
+        //random code for practice
         Java8Example.randomCode();
 
         // Core java 5 Generics examples Test changes
         callGenericsMethod();
         System.out.println();
-        //random code for practice Test 2
+
         System.out.println("****  Java 8 Optional   ****");
         Java8Example oe = new Java8Example();
         oe.runOptionalExamples();
