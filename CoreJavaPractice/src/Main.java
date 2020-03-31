@@ -10,7 +10,7 @@ public class Main {
         //random code for practice
         Java8Example.randomCode();
 
-        // Core java 5 Generics examples
+        // Core java 5 Generics examples Test changes
         callGenericsMethod();
         System.out.println();
 
