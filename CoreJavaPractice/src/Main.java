@@ -7,7 +7,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        //random code for practice
+        //random code for practice Test 2
         Java8Example.randomCode();
 
         // Core java 5 Generics examples Test changes
