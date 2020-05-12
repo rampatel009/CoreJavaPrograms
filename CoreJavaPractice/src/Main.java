@@ -23,7 +23,6 @@ public class Main {
         //Test 1
         //Test 2
         //Test 3
-        //Test 4
 
         System.out.println("****  Java 8 Streams   ****");;
         oe.runStreamsExamples();
